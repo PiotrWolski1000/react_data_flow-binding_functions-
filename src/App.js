@@ -6,11 +6,9 @@ import Button from './Components/Button'
 class App extends React.Component{
   constructor(props) {
     super(props)
-    this.increment1 = this.increment1.bind(this);
-    this.decrement1 = this.decrement1.bind(this);
-    this.increment2 = this.increment2.bind(this);
-    this.decrement2 = this.decrement2.bind(this);
-
+    this.f1 = this.f1.bind(this);
+    this.f2 = this.f2.bind(this);
+    
     this.state = {
       val1: 0,
       val2: 0
@@ -18,12 +16,10 @@ class App extends React.Component{
 
   }
 
-  increment1 = (val) => {this.setState(prevState => ({val1: prevState.val1 + val}));console.log('inc1');}
-  decrement1 = (val) => {this.setState(prevState => ({val1: prevState.val1 + val}));console.log('dec1');}
-  
-  increment2 = (val) => {this.setState(prevState => ({val2: prevState.val2 + val}));console.log('inc2');}
-  decrement2 = (val) => {this.setState(prevState => ({val2: prevState.val2 - val}));console.log('dec2');}
-  
+  f1 = (val) => {this.setState(prevState => ({val1: prevState.val1 + val}));console.log('f1');}
+
+  f2 = (val) => {this.setState(prevState => ({val2: prevState.val2 + val}));console.log('f2');}
+
 
 
   render(){
@@ -32,14 +28,14 @@ class App extends React.Component{
       <div className="App">
         <div>
           {val1}
-          <Button text = "+" mFunction = {() => this.increment1(1)}/>
-          <Button text = "-" mFunction = {() => this.decrement1(-1)}/>
+          <Button text = "+" mFunction = {() => this.f1(1)}/>
+          <Button text = "-" mFunction = {() => this.f1(-1)}/>
         </div>
         
         <div>
           {val2}
-          <Button text = "+" mFunction = {() => this.increment2(this.state.val1)}/>
-          <Button text = "-" mFunction = {() => this.decrement2(-this.state.val1)}/>
+          <Button text = "+" mFunction = {() => this.f2(this.state.val1)}/>
+          <Button text = "-" mFunction = {() => this.f2(-this.state.val1)}/>
         </div>
         
       </div>
